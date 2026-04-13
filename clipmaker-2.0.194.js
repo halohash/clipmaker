@@ -14244,7 +14244,7 @@ CM.templates.init = function() {
     else if (location.search)
         try {
             e = parseInt(new URL(location.href).searchParams.get("c"))
-        } catch (e) {}
+        } catch (e) {console.log(e)}
     this.loadTemplateInfo(e),
     this.selectRelated(e),
     e && (e = parseInt(e),
