@@ -59,7 +59,6 @@
           }
           else
           {
-            PZ.account.csrf = response.headers.get("X-CSRF-Token");
             var json = await response.json();
             PZ.account.currentUser = json;
           }
@@ -77,13 +76,12 @@
         if (op !== "get" && op !== "head")
         {
           var headers = new Headers();
-          var me = await PZ.account.getCurrent();
-          headers.append("x-csrf-token", PZ.account.csrf);
 
           if (body instanceof FormData === false)
           {
             headers.append("Content-Type", "application/json");
             body = JSON.stringify(body);
+            console.log(body);
           }
         }
 
