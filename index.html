@@ -26,6 +26,7 @@
       PZ.apiOrigin = "https://halohash.github.io/clipmaker/api";
       PZ.blobOrigin = "https://file.garden/aUYIWVAKvQxCBY-_/database/panzoid/data";
       PZ.creationsOrigin = "https://file.garden/aUYIWVAKvQxCBY-_/database/panzoid";
+      PZ.projectOrigin = "https://file.garden/aUYIWVAKvQxCBY-_/database/panzoid";
       PZ.account =
       {
         //currentUser: undefined,
@@ -69,9 +70,36 @@
         }
       };
 
-      PZ.api = async function (url, op, body)
+      PZ.proj = async function (url, op, body)
       {
         url = PZ.apiOrigin + url;
+
+        if (op !== "get" && op !== "head")
+        {
+          var headers = new Headers();
+
+          if (body instanceof FormData === false)
+          {
+            headers.append("Content-Type", "application/json");
+            body = JSON.stringify(body);
+            console.log(body);
+          }
+        }
+
+        var params =
+        {
+          method: op,
+          headers: headers,
+          cache: 'default',
+          credentials: 'include',
+          body: body
+        };
+        return fetch(url, params);
+      };
+
+      PZ.getproj = async function (url, op, body)
+      {
+        url = PZ.projectOrigin + url;
 
         if (op !== "get" && op !== "head")
         {

@@ -13932,7 +13932,7 @@ CM.templates.loadTemplateInfo = function(e) {
         var t = this.relatedList
           , r = document.createElement("div");
         t[0].parentElement.insertBefore(r, t[0]),
-        PZ.api("/creations/" + e + "?source=cm2", "get").then(function(e) {
+        PZ.getproj("/creations/" + e + "?source=cm2", "get").then(function(e) {
             404 !== e.status && 400 !== e.status ? 200 === e.status && e.json().then(function(e) {
                 var t = e.title
                   , a = e.description
@@ -14031,7 +14031,7 @@ CM.templates.loadTemplateInfo = function(e) {
                     p.appendChild(x)
                 }
                 r.appendChild(p)
-            }) : window.top !== window.self ? window.top.location.href = "/error" : window.location.href = "/error"
+            }) : window.top !== window.self ? window.location.href = "https://halohash.github.io/clipmaker/error" : window.location.href = "https://halohash.github.io/clipmaker/error"
         })
     }
 }
@@ -14252,7 +14252,7 @@ CM.templates.init = function() {
     this.$hidectrls.show(),
     CM.templates.ctrlCancel = !1,
     CM.templates.ctrlState = 0,
-    fetch(PZ.creationsOrigin + "/" + e + ".pz", {
+    fetch(PZ.thingOrigin + "/" + e + ".pz", {
         method: "get",
         cache: "default"
     }).then(function(t) {
