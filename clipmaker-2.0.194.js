@@ -13773,16 +13773,6 @@ CM.templates.selectMain = function() {
         title: "Save",
         clickfn: this.saveButton
     }, this).appendTo(t),
-    PZ.editor.generateButton({
-        title: "Publish",
-        clickfn: function() {
-            PZ.account.currentUser ? (this.submit.title = "",
-            this.submit.description = "",
-            this.submit.category = 0,
-            CM.timeline.setFrame(Math.floor(CM.totalFrames / 2)),
-            CM.templates.selectSubmit()) : this.selectResult(-1, "Please log in to upload creations.")
-        }
-    }, this).appendTo(t),
     Array.from(t.children).forEach(function(e) {
         e.style.borderRadius = "5px"
     }),
