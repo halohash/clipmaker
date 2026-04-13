@@ -13963,7 +13963,7 @@ CM.templates.loadTemplateInfo = function(e) {
                 f.target = "_blank",
                 f.style.cssText = `\n            line-height: 0;\n            text-decoration: none;\n          `;
                 var m;
-                n.userAvatarId ? ((m = document.createElement("img")).src = PZ.blobOrigin + "/avatars/" + n.userAvatarId + "_30.jpg",
+                n.userAvatarId ? ((m = document.createElement("img")).src = PZ.blobOrigin + "/avatars/" + n.userAvatarId + ".jpg",
                 m.alt = i,
                 m.style.cssText = `\n              width: 30px;\n              height: 30px;\n              border-radius: 50%;\n              margin-right: 10px;\n            `) : ((m = document.createElement("div")).style.cssText = `\n              width: 30px;\n              height: 30px;\n              background-color: #333;\n              border-radius: 50%;\n              margin-right: 10px;\n              text-align: center;\n              line-height: 30px;\n              color: #aaa;\n              text-decoration: none;\n            `,
                 m.textContent = i[0]),
@@ -14120,7 +14120,7 @@ CM.templates.selectRelated = function(e) {
                         s.loading = "lazy",
                         s.title = e.title,
                         s.dataset.t = e.creationId,
-                        s.src = `${PZ.creationsOrigin}/creation-thumbnails/${e.creationId}.jpg`,
+                        s.src = `${PZ.creationsOrigin}/img/${e.creationId}.jpg`,
                         i.appendChild(s);
                         const o = document.createElement("div");
                         o.style.cssText = `\n                  display: flex;\n                  flex-direction: column;\n                  width: 100%;\n                  font-family: 'Open Sans', sans-serif;\n                  overflow: hidden;\n                `;
@@ -14252,7 +14252,7 @@ CM.templates.init = function() {
     this.$hidectrls.show(),
     CM.templates.ctrlCancel = !1,
     CM.templates.ctrlState = 0,
-    fetch(PZ.creationsOrigin + "/creations/" + e + ".pz", {
+    fetch(PZ.creationsOrigin + "/" + e + ".pz", {
         method: "get",
         cache: "default"
     }).then(function(t) {
