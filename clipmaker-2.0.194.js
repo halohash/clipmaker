@@ -14252,7 +14252,7 @@ CM.templates.init = function() {
     this.$hidectrls.show(),
     CM.templates.ctrlCancel = !1,
     CM.templates.ctrlState = 0,
-    fetch(PZ.thingOrigin + "/" + e + ".pz", {
+    fetch(PZ.projectOrigin + "/" + e + ".pz", {
         method: "get",
         cache: "default"
     }).then(function(t) {
